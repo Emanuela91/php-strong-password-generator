@@ -6,6 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Generator</title>
+
+    <?php
+    // collegamento ad "helper.php" per la logica 
+    require 'helper.php';
+    // collegamento ad un'altra pagina per la password
+    session_start();
+    ?>
 </head>
 
 <body>
@@ -28,12 +35,14 @@
         //     return $password;
         // }
         
-        // collegamento ad "helper.php" per la logica 
-        require 'helper.php';
         // la lunghezza scritta dall'utente viene combinata con la funzione per generare la psw
         if (isset($_GET['length'])) {
             $password = password_generator($_GET['length']);
             echo "Nuova Password: " . $password;
+
+            // collegamento ad un'altra pagina per la mail
+            $_SESSION['length'] = $password;
+            header('Location: psw.php');
         }
 
         ?>
