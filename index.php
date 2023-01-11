@@ -38,9 +38,10 @@
         // la lunghezza scritta dall'utente viene combinata con la funzione per generare la psw
         if (isset($_GET['length'])) {
             $password = password_generator($_GET['length']);
-            echo "Nuova Password: " . $password;
-
-            // collegamento ad un'altra pagina per la mail
+            // stampa la password nella stessa pagina di immissione dati, non serve più perchè viene mostrata in psw.php 
+            // echo "Nuova Password: " . $password;
+        
+            // collegamento ad un'altra pagina per la password
             $_SESSION['length'] = $password;
             header('Location: psw.php');
         }

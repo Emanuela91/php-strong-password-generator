@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <!-- pagina collegata ad index che mostra la password -->
     <?php
     session_start();
     $password = $_SESSION['length'];
