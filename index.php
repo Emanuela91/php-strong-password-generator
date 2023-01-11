@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Generatort</title>
+    <title>Password Generator</title>
 </head>
 
 <body>
@@ -25,6 +25,12 @@
             for ($i = 0; $i < $length; $i++) {
                 $password .= $chars[array_rand($chars)];
             }
+            return $password;
+        }
+
+        if (isset($_GET['length'])) {
+            $password = password_generator($_GET['length']);
+            echo "Nuova Password: " . $password;
         }
 
         ?>
