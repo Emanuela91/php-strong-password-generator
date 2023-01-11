@@ -17,17 +17,20 @@
 
         <?php
         // funzione per creare la password con numeri, lettere (min e maiusc), e carratteri speciali
-        function password_generator($length)
-        {
-            // vengono combinati più array con array_merge
-            $chars = array_merge(range(0, 5), range('a', 'q'), range('A', 'Q'), array('!', '&', '*', '?', '%'));
-            $password = "";
-            for ($i = 0; $i < $length; $i++) {
-                $password .= $chars[array_rand($chars)];
-            }
-            return $password;
-        }
-
+        // function password_generator($length)
+        // {
+        //     // vengono combinati più array con array_merge
+        //     $chars = array_merge(range(0, 5), range('a', 'q'), range('A', 'Q'), array('!', '&', '*', '?', '%'));
+        //     $password = "";
+        //     for ($i = 0; $i < $length; $i++) {
+        //         $password .= $chars[array_rand($chars)];
+        //     }
+        //     return $password;
+        // }
+        
+        // collegamento ad "helper.php" per la logica 
+        require 'helper.php';
+        // la lunghezza scritta dall'utente viene combinata con la funzione per generare la psw
         if (isset($_GET['length'])) {
             $password = password_generator($_GET['length']);
             echo "Nuova Password: " . $password;
